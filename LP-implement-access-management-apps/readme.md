@@ -1,0 +1,1 @@
+Learning Path folder that holds the modules for this learning path.
