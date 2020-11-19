@@ -3,7 +3,7 @@
  It's possible that a large enough disaster could cause an outage large enough to affect even two datacenters. That's why Azure creates region pairs. Each Azure region is paired with another region within the same geography (such as US, Europe, or Asia) at least 300 miles away, which together make a [region pair](https://docs.microsoft.com/azure/best-practices-availability-paired-regions?azure-portal=true
 ). The exception is Brazil South, which is paired with a region outside its geography.
 
-:::image type="content" source="../media/regional-pairs.png" alt-text="Graphic showing East Asia paired with Southeast Asia and US West paired with US East.":::
+![Graphic showing East Asia paired with Southeast Asia and US West paired with US East.](../media/regional-pairs.png)
 
 ## Things to know about regional pairs:
 
