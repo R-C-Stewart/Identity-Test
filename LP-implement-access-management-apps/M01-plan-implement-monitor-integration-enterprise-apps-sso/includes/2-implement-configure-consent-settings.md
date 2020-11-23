@@ -23,10 +23,10 @@ App consent policies describe conditions which must be met before an app can be 
 
 ### To configure user consent settings through the Azure portal:
 
-1 - Sign in to the Azure portal as a Global Administrator.
-2 - Select Azure Active Directory > Enterprise applications > Consent and permissions > User consent settings.
-3 - Under User consent for applications, select which consent setting you'd like to configure for all users.
-4 - Select Save to save your settings.
+1. Sign in to the Azure portal as a Global Administrator.
+2. Select Azure Active Directory > Enterprise applications > Consent and permissions > User consent settings.
+3. Under User consent for applications, select which consent setting you'd like to configure for all users.
+4. Select Save to save your settings.
 
 ---
 
@@ -37,21 +37,21 @@ You can use the latest Azure AD PowerShell Preview module, AzureADPreview, to ch
 **Disable user consent**
 To disable user consent, set the consent policies which govern user consent to be empty:
 
-'''Set-AzureADMSAuthorizationPolicy `
-'''   -Id "authorizationPolicy" `
-'''   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @()
+
+     Set-AzureADMSAuthorizationPolicy `
+       -Id "authorizationPolicy" `
+       -PermissionGrantPolicyIdsAssignedToDefaultUserRole @()
 
 **Allow user consent subject to an app consent policy**
 To allow user consent, choose which app consent policy should govern users' authorization to grant consent to apps:
 
-'''
-Set-AzureADMSAuthorizationPolicy `
-   -Id "authorizationPolicy" `
-   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
+     Set-AzureADMSAuthorizationPolicy `
+      -Id "authorizationPolicy" `
+      -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
 
 Replace *{consent-policy-id}* with the ID of the policy you'd like to apply. You can choose a custom app consent policy you have created, or you can choose from the following built-in policies:
 
-| ID | Description |
+|           ID           | Description |
 | --- | --- |
 | microsoft-user-default-low | **Allow user consent for apps from verified publishers, for selected permissions.**  Allow limited user consent only for apps from verified publishers and apps registered in your tenant, and only for permissions that you classify as "Low impact". (Don't forget to classify permissions to select which permissions users are allowed to consent to.) |
 | microsoft-user-default-legacy | **Allow user consent for apps.**  This option allows all users to consent to any permission which doesn't require admin consent, for any application.
